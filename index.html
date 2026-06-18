@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D'Lux - Belleza y Bienestar a tu alcance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #1B1B1B;
+      background: #FFFFFF;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 600; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1B1B1B 0%, #2c2c2c 100%);
+      color: #FFFFFF;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 28px; font-weight: 700; letter-spacing: 2px; }
+    .logo span { color: #D4AF37; }
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #D4AF37; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #1B1B1B 0%, #E91E63 100%);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 100px 24px;
+    }
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #D4AF37; }
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      opacity: 0.9;
+    }
+    .hero .slogan {
+      font-size: 18px;
+      font-style: italic;
+      color: #D4AF37;
+      margin-top: 16px;
+    }
+    .btn {
+      display: inline-block;
+      background: #D4AF37;
+      color: #1B1B1B;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,175,55,0.4); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      margin-left: 12px;
+    }
+    .btn-outline:hover { background: #D4AF37; color: #1B1B1B; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    section:nth-child(even) { background: #F5F5F5; }
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 48px;
+      color: #1B1B1B;
+    }
+    .section-title span { color: #E91E63; }
+
+    /* Value Props */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .value-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .value-box h3 {
+      color: #E91E63;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    .value-box ul { list-style: none; }
+    .value-box ul li::before {
+      content: "✓";
+      color: #D4AF37;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+    .value-box ul li { margin-bottom: 8px; font-size: 15px; }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-card h4 {
+      color: #E91E63;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+    .service-card ul { list-style: none; font-size: 14px; }
+    .service-card ul li { margin-bottom: 6px; }
+    .service-card ul li::before { content: "•"; color: #D4AF37; margin-right: 8px; font-weight: 700; }
+
+    /* Marketplace */
+    .brands {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .brand-tag {
+      background: #FFFFFF;
+      border: 1px solid #E91E63;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Tech */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .tech-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .tech-card h4 { color: #E91E63; margin-bottom: 8px; font-size: 16px; }
+    .tech-card p { font-size: 14px; color: #666; }
+
+    /* KPIs */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .kpi-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .kpi-card h4 { color: #D4AF37; font-size: 20px; margin-bottom: 8px; }
+
+    /* Footer */
+    footer {
+      background: #1B1B1B;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 40px 24px;
+    }
+    footer p { opacity: 0.7; font-size: 14px; }
+    .footer-logo { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .footer-logo span { color: #D4AF37; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: 1fr; }
+      nav a { margin-left: 12px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">D'<span>LUX</span></div>
+      <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Productos</a>
+        <a href="#tech">Tecnología</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>D'<span>LUX</span></h1>
+    <p>Plataforma inteligente de belleza, estética y bienestar bajo demanda. Conectamos clientes con profesionales certificados.</p>
+    <a href="#" class="btn">Solicitar Servicio</a>
+    <a href="#" class="btn btn-outline">Ser Profesional</a>
+    <div class="slogan">"D'Lux: La belleza llega a ti."</div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Propuesta de <span>Valor</span></h2>
+      <div class="grid-2">
+        <div class="value-box">
+          <h3>Para Clientes</h3>
+          <ul>
+            <li>Solicitud inmediata de servicios de belleza</li>
+            <li>Reserva de citas en tiempo real</li>
+            <li>Atención a domicilio o en establecimiento</li>
+            <li>Profesionales verificados</li>
+            <li>Pagos seguros</li>
+            <li>Seguimiento en tiempo real</li>
+            <li>Historial de servicios</li>
+            <li>Programas de fidelización</li>
+            <li>Productos dermatológicos recomendados</li>
+          </ul>
+        </div>
+        <div class="value-box">
+          <h3>Para Prestadores</h3>
+          <ul>
+            <li>Mayor flujo de clientes</li>
+            <li>Optimización del tiempo</li>
+            <li>Gestión de agenda automatizada</li>
+            <li>Sistema de reputación</li>
+            <li>Incremento de ingresos</li>
+            <li>Cobertura geográfica ampliada</li>
+            <li>Herramientas de marketing digital</li>
+            <li>Estadísticas y métricas de desempeño</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="container">
+      <h2 class="section-title">Servicios <span>Disponibles</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h4>Peluquería</h4>
+          <ul>
+            <li>Corte femenino / masculino / infantil</li>
+            <li>Cepillado, planchado, ondulación</li>
+            <li>Keratina, botox capilar</li>
+            <li>Hidratación profunda</li>
+            <li>Coloración, mechas, balayage</li>
+            <li>Alisados</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h4>Barbería</h4>
+          <ul>
+            <li>Corte clásico y premium</li>
+            <li>Diseño de barba</li>
+            <li>Perfilado</li>
+            <li>Tratamientos capilares masculinos</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h4>Manicure y Pedicure</h4>
+          <ul>
+            <li>Tradicional, semipermanente, gel</li>
+            <li>Acrílicas y decoración</li>
+            <li>Spa de manos y pies</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h4>Estética Facial</h4>
+          <ul>
+            <li>Limpieza facial profunda</li>
+            <li>Hidratación facial</li>
+            <li>Peeling y dermaplaning</li>
+            <li>Radiofrecuencia</li>
+            <li>Mascarillas especializadas</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h4>Estética Corporal</h4>
+          <ul>
+            <li>Masajes relajantes</li>
+            <li>Drenaje linfático</li>
+            <li>Moldeo corporal</li>
+            <li>Maderoterapia</li>
+            <li>Exfoliación corporal</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h4>Podología</h4>
+          <ul>
+            <li>Evaluación podológica</li>
+            <li>Tratamiento preventivo</li>
+            <li>Tratamiento correctivo</li>
+            <li>Atención especializada adultos mayores</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="container">
+      <h2 class="section-title">Marketplace de Productos <span>Dermatológicos</span></h2>
+      <p style="text-align:center;max-width:700px;margin:0 auto 32px;">
+        Tienda virtual especializada en protectores solares, limpiadores faciales, sérums, hidratantes, antiedad, antimanchas, acné y cuidado corporal.
+      </p>
+      <div class="brands">
+        <span class="brand-tag">La Roche Posay</span>
+        <span class="brand-tag">Bioderma</span>
+        <span class="brand-tag">ISDIN</span>
+        <span class="brand-tag">Vichy</span>
+        <span class="brand-tag">Eucerin</span>
+        <span class="brand-tag">Cerave</span>
+        <span class="brand-tag">Avène</span>
+        <span class="brand-tag">Sesderma</span>
+        <span class="brand-tag">Cetaphil</span>
+        <span class="brand-tag">Skinceuticals</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Modelo de <span>Negocio</span></h2>
+      <div class="grid-2">
+        <div class="value-box">
+          <h3>Comisión por Servicio</h3>
+          <p style="font-size:40px;font-weight:700;color:#D4AF37;">15%</p>
+          <p>La plataforma retiene el 15% del valor de cada servicio.</p>
+          <p style="margin-top:12px;font-size:14px;color:#666;">
+            Ejemplo: Servicio $100.000 COP → Prestador: $85.000 COP | D'Lux: $15.000 COP
+          </p>
+        </div>
+        <div class="value-box">
+          <h3>Fuentes de Ingreso</h3>
+          <ul>
+            <li>Publicidad de marcas dermatológicas</li>
+            <li>Suscripción Premium para profesionales</li>
+            <li>Venta de productos dermatológicos</li>
+            <li>Servicios destacados</li>
+            <li>Campañas patrocinadas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tech">
+    <div class="container">
+      <h2 class="section-title">Arquitectura <span>Tecnológica</span></h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>Frontend</h4>
+          <p>Flutter · ReactJS</p>
+        </div>
+        <div class="tech-card">
+          <h4>Backend</h4>
+          <p>NodeJS · NestJS</p>
+        </div>
+        <div class="tech-card">
+          <h4>Base de Datos</h4>
+          <p>PostgreSQL</p>
+        </div>
+        <div class="tech-card">
+          <h4>Infraestructura</h4>
+          <p>AWS · Docker · Kubernetes</p>
+        </div>
+        <div class="tech-card">
+          <h4>Seguridad</h4>
+          <p>JWT · OAuth2 · SSL · AES-256</p>
+        </div>
+        <div class="tech-card">
+          <h4>Móvil</h4>
+          <p>Android · iOS (Flutter)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">KPIs <span>Clave</span></h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <h4>Clientes</h4>
+          <p>Registrados · Activos mensuales · Tasa de recompra · Ticket promedio</p>
+        </div>
+        <div class="kpi-card">
+          <h4>Prestadores</h4>
+          <p>Servicios realizados · Ingresos generados · Tiempo de respuesta · Satisfacción</p>
+        </div>
+        <div class="kpi-card">
+          <h4>Plataforma</h4>
+          <p>GMV · Ingresos por comisión · Retención · CAC · LTV</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: linear-gradient(135deg, #1B1B1B 0%, #E91E63 100%); color: #FFF;">
+    <div class="container" style="text-align:center;">
+      <h2 style="color:#FFF;font-size:36px;margin-bottom:16px;">Visión</h2>
+      <p style="max-width:700px;margin:0 auto 32px;font-size:18px;opacity:0.9;">
+        Convertirse en la plataforma líder de servicios de belleza y bienestar bajo demanda en Colombia y Latinoamérica.
+      </p>
+      <h2 style="color:#FFF;font-size:36px;margin-bottom:16px;">Misión</h2>
+      <p style="max-width:700px;margin:0 auto;font-size:18px;opacity:0.9;">
+        Conectar clientes y profesionales mediante tecnología innovadora, brindando experiencias de belleza, cuidado personal y bienestar con calidad, seguridad y comodidad.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">D'<span>LUX</span></div>
+    <p>© 2026 D'Lux. Todos los derechos reservados.</p>
+    <p style="margin-top:4px;">"D'Lux: La belleza llega a ti."</p>
+  </footer>
+
+</body>
+</html>
